@@ -1,14 +1,11 @@
-module github.com/AlexeySemigradsky/mi-hap
+module github.com/AlexeySemigradsky/hkow
 
 go 1.15
 
-replace github.com/AlexeySemigradsky/mi-hap v0.0.0 => ./
-replace github.com/AlexeySemigradsky/mi-hap/led-strip-light v0.0.0 => ./led-strip-light
-replace github.com/AlexeySemigradsky/mi-hap/magic-home v0.0.0 => ./magic-home
-
 require (
-	github.com/AlexeySemigradsky/mi-hap/led-strip-light v0.0.0
-	github.com/AlexeySemigradsky/mi-hap/magic-home v0.0.0 // indirect
+	github.com/AlexeySemigradsky/hkmh v0.0.0-20201212194643-3de265eed1b2
+	github.com/AlexeySemigradsky/mh v0.0.0-20201212174118-a31258b88565 // indirect
 	github.com/brutella/hc v1.2.3
-	github.com/lucasb-eyer/go-colorful v1.0.3 // indirect
+	github.com/xiam/to v0.0.0-20200126224905-d60d31e03561 // indirect
+	go.uber.org/multierr v1.6.0 // indirect
 )
