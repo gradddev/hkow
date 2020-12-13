@@ -1,9 +1,9 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"os"
+	"path"
 	"time"
 
 	"github.com/AlexeySemigradsky/hkmh"
@@ -13,18 +13,6 @@ import (
 )
 
 func main() {
-	if len(os.Args) < 2 {
-		fmt.Println("usage: hkow /path/to/storage/")
-		return
-	}
-
-	storagePath := os.Args[1]
-	stat, err := os.Stat(storagePath)
-	if err != nil || !stat.Mode().IsDir() {
-		fmt.Println("usage: hkow /path/to/storage/")
-		return
-	}
-
 	bridge := accessory.NewBridge(accessory.Info{Name: "Bridge", ID: 1})
 
 	deskLight, err := hkmh.NewAccessory(
@@ -32,7 +20,6 @@ func main() {
 		"192.168.1.211:5577",
 		3*time.Second,
 	)
-
 	if err != nil {
 		log.Panicln(err)
 	}
@@ -42,11 +29,17 @@ func main() {
 		"192.168.1.216:5577",
 		3*time.Second,
 	)
-
 	if err != nil {
 		log.Panicln(err)
 	}
 
+	userHomeDir, err := os.UserHomeDir()
+	if err != nil {
+		log.Panicln(err)
+	}
+
+	storagePath := path.Join(userHomeDir, ".hkow")
+	log.Println(storagePath)
 	config := hc.Config{
 		StoragePath: storagePath,
 		Pin:         "00207700",
