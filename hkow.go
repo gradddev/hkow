@@ -39,7 +39,6 @@ func main() {
 	}
 
 	storagePath := path.Join(userHomeDir, ".hkow")
-	log.Println(storagePath)
 	config := hc.Config{
 		StoragePath: storagePath,
 		Pin:         "00207700",
