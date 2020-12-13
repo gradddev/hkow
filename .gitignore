@@ -3,4 +3,6 @@
 .idea
 .vscode
 
+build/package/packages
+
 Bridge
