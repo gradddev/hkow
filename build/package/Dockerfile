@@ -8,3 +8,4 @@ RUN ./scripts/feeds install -a
 RUN make defconfig
 RUN sed 's/CONFIG_SIGNED_PACKAGES=y/CONFIG_SIGNED_PACKAGES=n/' -i .config
 COPY Makefile package/hkow/
+COPY files package/hkow/files

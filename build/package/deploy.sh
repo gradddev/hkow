@@ -11,6 +11,11 @@ if [[ -z "$file_path" || ! -e $file_path || ${file_path: -4} != ".ipk" ]]; then
     exit 1
 fi
 
-file_name=$(basename $file_path)
-scp $file_path root@192.168.1.1:/tmp/
-ssh root@192.168.1.1 "opkg remove hkow; opkg install /tmp/$file_name"
+scp "$file_path" root@192.168.1.1:~/hkow.ipk
+ssh root@192.168.1.1 << 'EOF'
+  opkg remove hkow;
+  opkg install ~/hkow.ipk;
+  rm ~/hkow.ipk;
+  /etc/init.d/hkow enable;
+  /etc/init.d/hkow start;
+EOF

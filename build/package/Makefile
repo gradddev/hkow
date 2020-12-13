@@ -1,11 +1,11 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=hkow
-PKG_VERSION:=1.2.0
+PKG_VERSION:=1.3.0
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/AlexeySemigradsky/hkow.git
-PKG_SOURCE_VERSION:=b4f1e48611e5e1d1a7bea898925dc22fdbe0a222
+PKG_SOURCE_VERSION:=8174f758fa10a03f9fc1f17e86e1f2c2f04a3f29
 
 PKG_BUILD_DEPENDS:=golang/host
 PKG_BUILD_PARALLEL:=1
@@ -27,6 +27,13 @@ endef
 define Package/hkow/description
 The HomeKit bridge for the OpenWrt
 
+endef
+
+define Package/hkow/install
+	$(call GoPackage/Package/Install/Bin,$(1))
+
+	$(INSTALL_DIR) $(1)/etc/init.d
+	$(INSTALL_BIN) ./files/etc/init.d/hkow $(1)/etc/init.d/hkow
 endef
 
 $(eval $(call GoBinPackage,hkow))
