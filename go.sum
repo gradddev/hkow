@@ -2,8 +2,12 @@ github.com/AlexeySemigradsky/hk-mh v0.0.0-20201212192042-864e3707c2c3 h1:hFrqLgl
 github.com/AlexeySemigradsky/hk-mh v0.0.0-20201212192042-864e3707c2c3/go.mod h1:lNaTrKKorChOCO6oUiKrinN7vBL4zN6MAg2fi04rlf0=
 github.com/AlexeySemigradsky/hkmh v0.0.0-20201212194643-3de265eed1b2 h1:R9VqwqUIDYmtL47avOlQlQpNlBWLNJ33EAdTBnxh9VA=
 github.com/AlexeySemigradsky/hkmh v0.0.0-20201212194643-3de265eed1b2/go.mod h1:B6PusNBKNQPeWVehkdJt5IbCV8466J7oCe+bLT6xJIQ=
+github.com/AlexeySemigradsky/hkmh v1.0.0 h1:KN0kZL8pez3+dUw6auv8O4O66r72tI0DC1T5yc4FfI8=
+github.com/AlexeySemigradsky/hkmh v1.0.0/go.mod h1:Ix5/o+qNLii2U0DrWTKglsdyBBYVxF9xrBxk5p2nmAM=
 github.com/AlexeySemigradsky/mh v0.0.0-20201212174118-a31258b88565 h1:i4QwjEOV+BnNLWqqMHMaU1Op5SGlyi1PYB1OUFKHaOk=
 github.com/AlexeySemigradsky/mh v0.0.0-20201212174118-a31258b88565/go.mod h1:KxoAOvIFYS2W38EUY33XZM/yUItNFHOMuDNkw8ic5Yk=
+github.com/AlexeySemigradsky/mh v1.0.0 h1:imw9+8/89Rh+6RweAfMtNXXrenLP5HNlNP7X58PSNh0=
+github.com/AlexeySemigradsky/mh v1.0.0/go.mod h1:KxoAOvIFYS2W38EUY33XZM/yUItNFHOMuDNkw8ic5Yk=
 github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU=
 github.com/brutella/dnssd v1.1.1 h1:Ar5ytE2Z9x5DTmuNnASlMTBpcQWQLm9ceHb326s0ykg=
 github.com/brutella/dnssd v1.1.1/go.mod h1:9gIcMKQSJvYlO2x+HR50cqqjghb9IWK9hvykmyveVVs=
