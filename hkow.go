@@ -3,8 +3,6 @@ package main
 import (
 	"log"
 	"net"
-	"os"
-	"path"
 	"time"
 
 	"github.com/AlexeySemigradsky/hkmh"
@@ -30,10 +28,8 @@ func main() {
 		Timeout: 3 * time.Second,
 	})
 
-	userHomeDir, err := os.UserHomeDir()
-	handleError(err)
-
-	storagePath := path.Join(userHomeDir, ".hkow")
+	storagePath := "/etc/.hkow"
+	log.Println(storagePath)
 	config := hc.Config{
 		StoragePath: storagePath,
 		Pin:         "00207700",
