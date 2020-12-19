@@ -37,7 +37,6 @@ func main() {
 	config := hc.Config{
 		StoragePath: storagePath,
 		Pin:         "00207700",
-		SetupId:     "2077",
 	}
 
 	t, err := hc.NewIPTransport(
