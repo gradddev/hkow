@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"net"
 	"os"
 	"path"
 	"time"
@@ -13,47 +14,49 @@ import (
 )
 
 func main() {
-	bridge := accessory.NewBridge(accessory.Info{Name: "Bridge", ID: 1})
+	bridge := accessory.NewBridge(accessory.Info{Name: "Mi Router 3G", ID: 1})
 
-	deskLight, err := hkmh.NewAccessory(
-		accessory.Info{Name: "Desk Light", ID: 2},
-		"192.168.1.211:5577",
-		3*time.Second,
-	)
-	if err != nil {
-		log.Panicln(err)
-	}
+	deskLight := hkmh.NewAccessory(hkmh.Config{
+		ID:      2,
+		IP:      net.ParseIP("192.168.1.211"),
+		Name:    "Desk Light",
+		Timeout: 3 * time.Second,
+	})
 
-	bedLight, err := hkmh.NewAccessory(
-		accessory.Info{Name: "Bed Light", ID: 3},
-		"192.168.1.216:5577",
-		3*time.Second,
-	)
-	if err != nil {
-		log.Panicln(err)
-	}
+	bedLight := hkmh.NewAccessory(hkmh.Config{
+		ID:      3,
+		IP:      net.ParseIP("192.168.1.215"),
+		Name:    "Bed Light",
+		Timeout: 3 * time.Second,
+	})
 
 	userHomeDir, err := os.UserHomeDir()
-	if err != nil {
-		log.Panicln(err)
-	}
+	handleError(err)
 
 	storagePath := path.Join(userHomeDir, ".hkow")
 	config := hc.Config{
 		StoragePath: storagePath,
 		Pin:         "00207700",
+		SetupId:     "2077",
 	}
+
 	t, err := hc.NewIPTransport(
 		config,
 		bridge.Accessory,
 		deskLight.Accessory,
 		bedLight.Accessory,
 	)
-	if err != nil {
-		log.Panicln(err)
-	}
+	handleError(err)
+
 	hc.OnTermination(func() {
 		<-t.Stop()
 	})
+
 	t.Start()
+}
+
+func handleError(err error) {
+	if err != nil {
+		log.Panicln(err)
+	}
 }
