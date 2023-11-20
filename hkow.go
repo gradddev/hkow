@@ -5,7 +5,7 @@ import (
 	"net"
 	"time"
 
-	"github.com/AlexeySemigradsky/hkmh"
+	"github.com/gradddev/hkmh"
 
 	"github.com/brutella/hc"
 	"github.com/brutella/hc/accessory"
